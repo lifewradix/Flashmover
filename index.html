@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Flashmovers | Best House Movers in Nairobi & Lavington</title>
+    <meta name="description" content="Flashmovers offers premier relocation services in Lavington, Kilimani, and across Nairobi. Professional house moving, office transfers, and secure logistics. Get a quote today!">
+    <meta name="keywords" content="Movers in Nairobi, House movers Lavington, Best moving company Kenya, Flashmovers, Office relocation Nairobi, Affordable movers Kenya">
+    <meta name="author" content="Flashmovers Kenya">
+    
+    <meta property="og:title" content="Flashmovers | Move with Heart in Nairobi">
+    <meta property="og:description" content="Professional relocation and logistics experts based in Lavington. Safe, fast, and reliable.">
+    <meta property="og:image" content="favicon.jpeg">
+    <meta property="og:url" content="https://flashmovers.co.ke">
+    
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <link rel="apple-touch-icon" href="favicon.jpeg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@400;700;900&display=swap');
+        
+        :root { --accent: #A855F7; }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #000; 
+            color: #fff; 
+            overflow-x: hidden;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        .heading-font { font-family: 'Syncopate', sans-serif; text-transform: uppercase; }
+        
+        #canvas-container { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
+            background: #000;
+            pointer-events: none;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('image 6.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 2px var(--accent);
+            color: transparent;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+        
+        @media (min-width: 768px) {
+            .photo-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px 80px; }
+        }
+
+        .img-slot {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #111;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            position: relative;
+        }
+
+        .img-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .img-slot:hover img { transform: scale(1.1); }
+
+        .btn-main {
+            background: var(--accent);
+            padding: 1.2rem 2rem;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .glass-nav {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .brand-logo, .footer-logo {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+        }
+
+        .brand-logo {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .footer-logo {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-logo:hover, .footer-logo:hover {
+            transform: perspective(500px) rotateX(10deg) rotateY(-10deg) scale(1.1);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+            border-color: #fff;
+        }
+
+        input, select, textarea {
+            background: #111 !important;
+            border: 1px solid #222 !important;
+            color: white !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            padding: 1rem !important;
+        }
+
+        input:focus { border-color: var(--accent) !important; }
+
+        .form-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #A855F7;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body id="top">
+
+    <div id="canvas-container"></div>
+
+    <nav class="fixed w-full z-[100] py-4 px-6 flex justify-between items-center glass-nav">
+        <a href="#top" class="flex items-center gap-3 no-underline">
+            <img src="favicon.jpeg" alt="Flashmovers Logo" class="brand-logo">
+            <div class="heading-font text-lg tracking-tighter">
+                Flash<span class="text-purple-500">Movers</span>
+            </div>
+        </a>
+        <a href="tel:+254721896311" class="text-white text-xl">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </nav>
+
+    <section class="hero-section">
+        <div class="px-6 md:px-20 w-full">
+            <span class="text-purple-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Lavington • Nairobi</span>
+            <h1 class="heading-font text-5xl md:text-8xl leading-[0.9] mb-6">
+                Move with<br><span class="text-stroke">US.</span>
+            </h1>
+            <p class="text-zinc-300 max-w-sm text-md md:text-lg mb-8 leading-relaxed">
+                Nairobi's elite movers. Logistics with a heart <i class="fa-solid fa-heart text-purple-500"></i>.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#booking" class="btn-main text-black uppercase text-xs text-center justify-center">
+                    Get Instant Quote <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-10 bg-black">
+        <div class="px-6 md:px-20 mb-6">
+            <h2 class="heading-font text-sm text-purple-500 tracking-widest">Our Fleet & Team</h2>
+        </div>
+        <div class="photo-grid">
+            <div class="img-slot"><img src="image 5.jpeg" alt="Truck"></div>
+            <div class="img-slot"><img src="image 1.jpeg" alt="Moving Boxes"></div>
+            <div class="img-slot"><img src="image 6.jpeg" alt="Logistics"></div>
+            <div class="img-slot"><img src="image 8.jpeg" alt="Safe Move"></div>
+        </div>
+    </div>
+
+    <section class="py-20 px-6 md:px-20">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 border border-white/5 rounded-2xl bg-zinc-950/50">
+                <i class="fa-solid fa-house-user text-purple-500 text-3xl mb-6"></i>
+                <h3 class="heading-font text-lg mb-2">Home Moving</h3>
+                <p class="text-zinc-500 text-sm">Professional packing and relocation for households of all sizes.</p>
+            </div>
+            <div class="p-8 border border-white/5 rounded-2xl bg-zinc-950/50">
+                <i class="fa-solid fa-briefcase text-purple-500 text-3xl mb-6"></i>
+                <h3 class="heading-font text-lg mb-2">Office Move</h3>
+                <p class="text-zinc-500 text-sm">Efficient corporate transfers to keep your business downtime low.</p>
+            </div>
+            <div class="p-8 border border-white/5 rounded-2xl bg-zinc-950/50">
+                <i class="fa-solid fa-truck-ramp-box text-purple-500 text-3xl mb-6"></i>
+                <h3 class="heading-font text-lg mb-2">Transport</h3>
+                <p class="text-zinc-500 text-sm">Secure general transport for furniture, crates, and equipment.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-10 bg-zinc-950">
+        <div class="px-6 md:px-20 mb-6 text-right">
+            <h2 class="heading-font text-sm text-purple-500 tracking-widest">Reliability in Action</h2>
+        </div>
+        <div class="photo-grid">
+            <div class="img-slot"><img src="image 2.jpeg" alt="Warehouse"></div>
+            <div class="img-slot"><img src="image 3.jpeg" alt="Packing"></div>
+            <div class="img-slot"><img src="image 7.jpeg" alt="Schedule"></div>
+            <div class="img-slot"><img src="image 9.jpeg" alt="Loading"></div>
+        </div>
+    </div>
+
+    <section id="booking" class="py-20 px-6 md:px-20 bg-black">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-3xl md:text-5xl mb-4">Book <span class="text-purple-500">Flash</span></h2>
+                <p class="text-zinc-500 text-xs uppercase tracking-[0.3em]">Nairobi • Nationwide Logistics</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <span class="form-label">Pickup (Moving From)</span>
+                    <input id="from_loc" type="text" placeholder="PICKUP LOCATION" class="w-full outline-none">
+                    <select id="from_rooms" class="w-full outline-none appearance-none">
+                        <option value="" disabled selected>ROOMS IN CURRENT HOUSE</option>
+                        <option>Bedsitter / Studio</option>
+                        <option>1 Bedroom</option>
+                        <option>2 Bedroom</option>
+                        <option>3+ Bedroom</option>
+                        <option>Office Space</option>
+                    </select>
+                    <div class="grid grid-cols-2 gap-2">
+                        <input id="from_floor" type="text" placeholder="FLOOR NO." class="w-full outline-none">
+                        <select id="from_elev" class="w-full outline-none appearance-none">
+                            <option value="" disabled selected>ELEVATOR?</option>
+                            <option>Yes, Elevator</option>
+                            <option>No Elevator</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <span class="form-label">Destination (Moving To)</span>
+                    <input id="to_loc" type="text" placeholder="DESTINATION LOCATION" class="w-full outline-none">
+                    <select id="to_rooms" class="w-full outline-none appearance-none">
+                        <option value="" disabled selected>ROOMS IN NEW HOUSE</option>
+                        <option>Bedsitter / Studio</option>
+                        <option>1 Bedroom</option>
+                        <option>2 Bedroom</option>
+                        <option>3+ Bedroom</option>
+                        <option>Office Space</option>
+                    </select>
+                    <div class="grid grid-cols-2 gap-2">
+                        <input id="to_floor" type="text" placeholder="FLOOR NO." class="w-full outline-none">
+                        <select id="to_elev" class="w-full outline-none appearance-none">
+                            <option value="" disabled selected>ELEVATOR?</option>
+                            <option>Yes, Elevator</option>
+                            <option>No Elevator</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 space-y-4 pt-8 border-t border-white/5">
+                <span class="form-label">Inventory & Notes</span>
+                <textarea id="details" rows="3" placeholder="LIST FRAGILE ITEMS OR SPECIAL INSTRUCTIONS..." class="w-full outline-none"></textarea>
+                
+                <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                    <button onclick="handleBooking('whatsapp')" class="bg-purple-600 text-black font-black py-5 rounded-lg text-xs uppercase tracking-widest hover:bg-white transition flex items-center justify-center gap-2">
+                        WhatsApp Request <i class="fa-brands fa-whatsapp text-lg"></i>
+                    </button>
+                    <button onclick="handleBooking('sms')" class="border border-white/20 text-white font-black py-5 rounded-lg text-xs uppercase tracking-widest hover:bg-white hover:text-black transition flex items-center justify-center gap-2">
+                        Send Direct SMS <i class="fa-solid fa-comment-sms text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div>
+                <a href="#top"><img src="favicon.jpeg" alt="Flashmovers Footer Logo" class="footer-logo"></a>
+                <h3 class="heading-font text-lg mb-4">Flash<span class="text-purple-500">Movers</span></h3>
+                <p class="text-zinc-500 text-sm leading-relaxed mb-4">Elite relocation experts in Nairobi. Moving with heart <i class="fa-solid fa-heart text-purple-500"></i>.</p>
+                <p class="text-purple-500 font-bold">info@flashmover.co.ke</p>
+            </div>
+            <div>
+                <h4 class="text-[10px] uppercase tracking-[0.4em] text-zinc-600 mb-6 font-black">Support</h4>
+                <p class="text-xl font-bold mb-2">+254 721 896 311</p>
+                <p class="text-xl font-bold">+254 737 603 717</p>
+            </div>
+            <div class="flex gap-6 text-2xl items-end justify-start md:justify-end">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="mt-16 text-center text-[9px] text-zinc-800 heading-font tracking-widest">
+            © 2026 Flashmovers Kenya. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // BACKGROUND PARTICLES
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        for (let i = 0; i < 2000; i++) {
+            vertices.push(THREE.MathUtils.randFloatSpread(40), THREE.MathUtils.randFloatSpread(40), THREE.MathUtils.randFloatSpread(40));
+        }
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        const material = new THREE.PointsMaterial({ color: 0xA855F7, size: 0.04, transparent: true, opacity: 0.3 });
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+        camera.position.z = 15;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            points.rotation.y += 0.0008;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // BOOKING LOGIC
+        function handleBooking(method) {
+            const fLoc = document.getElementById('from_loc').value || "N/A";
+            const fRooms = document.getElementById('from_rooms').value || "N/A";
+            const fFloor = document.getElementById('from_floor').value || "0";
+            const fElev = document.getElementById('from_elev').value || "N/A";
+
+            const tLoc = document.getElementById('to_loc').value || "N/A";
+            const tRooms = document.getElementById('to_rooms').value || "N/A";
+            const tFloor = document.getElementById('to_floor').value || "0";
+            const tElev = document.getElementById('to_elev').value || "N/A";
+
+            const details = document.getElementById('details').value || "None";
+            
+            const phone = "254721896311";
+
+            const msg = `FLASHMOVERS QUOTE REQUEST:%0A------------------%0AFROM: ${fLoc}%0ALAYOUT: ${fRooms}%0AFLOOR: ${fFloor} (${fElev})%0A%0ATO: ${tLoc}%0ALAYOUT: ${tRooms}%0AFLOOR: ${tFloor} (${tElev})%0A%0ANOTES: ${details}`;
+
+            if (method === 'whatsapp') {
+                window.open(`https://wa.me/${phone}?text=${msg}`);
+            } else {
+                window.location.href = `sms:+${phone}?body=${msg.replace(/%0A/g, '\n')}`;
+            }
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.img-slot').forEach(img => {
+            gsap.from(img, { opacity: 0, y: 30, duration: 0.8, scrollTrigger: { trigger: img, start: "top 90%" }});
+        });
+    </script>
+</body>
+</html>
