@@ -7,7 +7,16 @@
     <title>Flashmovers | Best House & Corporate Movers in Nairobi</title>
     <meta name="description" content="Flashmovers offers premier relocation, international moving, and logistics services in Nairobi. Professional house moving, office transfers, and secure storage.">
     <meta name="keywords" content="Movers in Nairobi, House movers Lavington, International relocations Kenya, Office moving Nairobi, Pet moves Kenya, Flashmovers">
+    <meta name="author" content="Flashmovers Kenya">
     
+    <meta property="og:title" content="Flashmovers | Move with Heart in Nairobi">
+    <meta property="og:description" content="Professional relocation and logistics experts based in Lavington. Safe, fast, and reliable.">
+    <meta property="og:image" content="favicon.jpeg">
+    <meta property="og:url" content="https://flashmovers.co.ke">
+    
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <link rel="apple-touch-icon" href="favicon.jpeg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -137,7 +146,7 @@
             padding: 1rem !important;
         }
 
-        input:focus, select:focus { border-color: var(--accent) !important; outline: none; }
+        input:focus { border-color: var(--accent) !important; outline: none; }
 
         .form-label {
             font-size: 10px;
@@ -149,43 +158,32 @@
             font-weight: 900;
         }
 
-        .service-card {
-            transition: all 0.3s ease;
-            background: rgba(9, 9, 11, 0.5);
-        }
-        
-        .service-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            background: rgba(168, 85, 247, 0.05);
-        }
-
-        .whatsapp-float {
+        /* Floating WhatsApp */
+        .whatsapp-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            z-index: 200;
+            background: #25D366;
             width: 60px;
             height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
+            font-size: 30px;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: 0.3s;
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-btn:hover { transform: scale(1.1); }
     </style>
 </head>
 <body id="top">
 
     <div id="canvas-container"></div>
 
-    <a href="https://wa.me/254721896311" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/254721896311" class="whatsapp-btn" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -203,12 +201,12 @@
 
     <section class="hero-section">
         <div class="px-6 md:px-20 w-full">
-            <span class="text-purple-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Nairobi • Global Logistics</span>
+            <span class="text-purple-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Lavington • Nairobi</span>
             <h1 class="heading-font text-5xl md:text-8xl leading-[0.9] mb-6">
-                Move with<br><span class="text-stroke">HEART.</span>
+                Move with<br><span class="text-stroke">US.</span>
             </h1>
             <p class="text-zinc-300 max-w-sm text-md md:text-lg mb-8 leading-relaxed">
-                Nairobi's elite movers. From household transfers to global logistics <i class="fa-solid fa-heart text-purple-500"></i>.
+                Nairobi's elite movers. Logistics with a heart <i class="fa-solid fa-heart text-purple-500"></i>.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
                 <a href="#booking" class="btn-main text-black uppercase text-xs text-center justify-center">
@@ -218,70 +216,10 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 md:px-20 bg-black">
-        <div class="mb-16">
-            <h2 class="heading-font text-3xl md:text-5xl mb-4">Our <span class="text-purple-500">Services</span></h2>
-            <div class="h-1 w-20 bg-purple-500"></div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-house-chimney text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Household Relocations</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Seamless home moves with expert packing and handling.</p>
-            </div>
-            
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-building-user text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Corporate Relocations</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Tailored moving solutions for large-scale corporate entities.</p>
-            </div>
-
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-briefcase text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Office Relocations</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Minimizing downtime with efficient workspace transfers.</p>
-            </div>
-
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-earth-africa text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Cross Border Moves</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Connecting you to East Africa and beyond via land.</p>
-            </div>
-
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-plane-departure text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">International Moves</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Global relocation services via sea and air freight.</p>
-            </div>
-
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-warehouse text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Good Storage</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Secure, climate-controlled warehousing for your assets.</p>
-            </div>
-
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-box-open text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Parcels & Errands</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Fast, reliable delivery for small items and errands.</p>
-            </div>
-
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-gift text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Gift Delivery</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Personalized delivery service for your special moments.</p>
-            </div>
-
-            <div class="service-card p-8 border border-white/5 rounded-2xl">
-                <i class="fa-solid fa-paw text-purple-500 text-3xl mb-6"></i>
-                <h3 class="heading-font text-sm mb-3">Pet Moves</h3>
-                <p class="text-zinc-500 text-xs leading-relaxed">Safe and stress-free transportation for your furry friends.</p>
-            </div>
-        </div>
-    </section>
-
     <div class="py-10 bg-black">
+        <div class="px-6 md:px-20 mb-6">
+            <h2 class="heading-font text-sm text-purple-500 tracking-widest">Our Fleet & Team</h2>
+        </div>
         <div class="photo-grid">
             <div class="img-slot"><img src="image 5.jpeg" alt="Truck"></div>
             <div class="img-slot"><img src="image 1.jpeg" alt="Moving Boxes"></div>
@@ -290,26 +228,102 @@
         </div>
     </div>
 
+    <section class="py-20 px-6 md:px-20 bg-zinc-950/30">
+        <div class="mb-12">
+            <h2 class="heading-font text-2xl text-white">Our Specialist <span class="text-purple-500">Services</span></h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-building text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">Corporate Relocations</h4>
+            </div>
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-globe text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">Cross Border Moves</h4>
+            </div>
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-plane text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">International Relocations</h4>
+            </div>
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-briefcase text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">Office Relocations</h4>
+            </div>
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-warehouse text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">Good Storage</h4>
+            </div>
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-truck-fast text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">Parcels & Errands</h4>
+            </div>
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-gift text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">Gift Delivery</h4>
+            </div>
+            <div class="p-6 border border-white/5 rounded-xl bg-black/50 hover:border-purple-500/50 transition">
+                <i class="fa-solid fa-paw text-purple-500 mb-4"></i>
+                <h4 class="heading-font text-[10px] mb-2">Pet Moves</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 md:px-20">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 border border-white/5 rounded-2xl bg-zinc-950/50">
+                <i class="fa-solid fa-house-user text-purple-500 text-3xl mb-6"></i>
+                <h3 class="heading-font text-lg mb-2">Household Move</h3>
+                <p class="text-zinc-500 text-sm">Professional packing and relocation for households of all sizes.</p>
+            </div>
+            <div class="p-8 border border-white/5 rounded-2xl bg-zinc-950/50">
+                <i class="fa-solid fa-truck-ramp-box text-purple-500 text-3xl mb-6"></i>
+                <h3 class="heading-font text-lg mb-2">Logistics</h3>
+                <p class="text-zinc-500 text-sm">Efficient corporate transfers and nationwide transport.</p>
+            </div>
+            <div class="p-8 border border-white/5 rounded-2xl bg-zinc-950/50">
+                <i class="fa-solid fa-shield-heart text-purple-500 text-3xl mb-6"></i>
+                <h3 class="heading-font text-lg mb-2">Secure Moving</h3>
+                <p class="text-zinc-500 text-sm">Secure general transport for furniture, crates, and equipment.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-10 bg-zinc-950">
+        <div class="px-6 md:px-20 mb-6 text-right">
+            <h2 class="heading-font text-sm text-purple-500 tracking-widest">Reliability in Action</h2>
+        </div>
+        <div class="photo-grid">
+            <div class="img-slot"><img src="image 2.jpeg" alt="Warehouse"></div>
+            <div class="img-slot"><img src="image 3.jpeg" alt="Packing"></div>
+            <div class="img-slot"><img src="image 7.jpeg" alt="Schedule"></div>
+            <div class="img-slot"><img src="image 9.jpeg" alt="Loading"></div>
+        </div>
+    </div>
+
     <section id="booking" class="py-20 px-6 md:px-20 bg-black">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="heading-font text-3xl md:text-5xl mb-4">Book <span class="text-purple-500">Flash</span></h2>
-                <p class="text-zinc-500 text-xs uppercase tracking-[0.3em]">Nairobi • Nationwide • International</p>
+                <p class="text-zinc-500 text-xs uppercase tracking-[0.3em]">Nairobi • Nationwide Logistics</p>
             </div>
             
+            <div id="form-error" class="hidden mb-4 p-4 bg-red-900/20 border border-red-500 text-red-500 text-xs uppercase tracking-widest text-center">
+                Please enter both pickup and destination locations.
+            </div>
+
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="space-y-4">
-                    <span class="form-label">Moving Details</span>
-                    <select id="service_type" class="w-full outline-none appearance-none">
-                        <option value="" disabled selected>SELECT SERVICE TYPE</option>
-                        <option>Household Relocation</option>
-                        <option>Office/Corporate Move</option>
-                        <option>International/Cross Border</option>
-                        <option>Storage Services</option>
-                        <option>Pet Move</option>
-                        <option>Parcel/Gift Delivery</option>
-                    </select>
+                    <span class="form-label">Pickup (Moving From)</span>
                     <input id="from_loc" type="text" placeholder="PICKUP LOCATION" class="w-full outline-none">
+                    <select id="from_rooms" class="w-full outline-none appearance-none">
+                        <option value="" disabled selected>TYPE OF MOVE / SIZE</option>
+                        <option>Bedsitter / Studio</option>
+                        <option>1 Bedroom</option>
+                        <option>2 Bedroom</option>
+                        <option>3+ Bedroom</option>
+                        <option>Office Space</option>
+                        <option>Pet / Parcel / Errand</option>
+                    </select>
                     <div class="grid grid-cols-2 gap-2">
                         <input id="from_floor" type="text" placeholder="FLOOR NO." class="w-full outline-none">
                         <select id="from_elev" class="w-full outline-none appearance-none">
@@ -321,16 +335,16 @@
                 </div>
 
                 <div class="space-y-4">
-                    <span class="form-label">Destination</span>
+                    <span class="form-label">Destination (Moving To)</span>
                     <input id="to_loc" type="text" placeholder="DESTINATION LOCATION" class="w-full outline-none">
                     <select id="to_rooms" class="w-full outline-none appearance-none">
-                        <option value="" disabled selected>SIZE (ROOMS/SQFT)</option>
+                        <option value="" disabled selected>NEW HOUSE / TARGET SIZE</option>
                         <option>Bedsitter / Studio</option>
                         <option>1 Bedroom</option>
                         <option>2 Bedroom</option>
                         <option>3+ Bedroom</option>
-                        <option>Large Office</option>
-                        <option>Small Parcel</option>
+                        <option>Office Space</option>
+                        <option>Cross Border / Int'l</option>
                     </select>
                     <div class="grid grid-cols-2 gap-2">
                         <input id="to_floor" type="text" placeholder="FLOOR NO." class="w-full outline-none">
@@ -345,10 +359,8 @@
 
             <div class="mt-8 space-y-4 pt-8 border-t border-white/5">
                 <span class="form-label">Inventory & Notes</span>
-                <textarea id="details" rows="3" placeholder="LIST FRAGILE ITEMS, PET DETAILS, OR SPECIAL INSTRUCTIONS..." class="w-full outline-none"></textarea>
+                <textarea id="details" rows="3" placeholder="LIST FRAGILE ITEMS OR SPECIAL INSTRUCTIONS (e.g. Pet breed, Parcel size)..." class="w-full outline-none"></textarea>
                 
-                <div id="form-feedback" class="hidden text-red-500 text-xs uppercase tracking-widest text-center mb-4">Please fill in locations to proceed.</div>
-
                 <div class="grid sm:grid-cols-2 gap-4 pt-4">
                     <button onclick="handleBooking('whatsapp')" class="bg-purple-600 text-black font-black py-5 rounded-lg text-xs uppercase tracking-widest hover:bg-white transition flex items-center justify-center gap-2">
                         WhatsApp Request <i class="fa-brands fa-whatsapp text-lg"></i>
@@ -366,8 +378,8 @@
             <div>
                 <a href="#top"><img src="favicon.jpeg" alt="Flashmovers Footer Logo" class="footer-logo"></a>
                 <h3 class="heading-font text-lg mb-4">Flash<span class="text-purple-500">Movers</span></h3>
-                <p class="text-zinc-500 text-sm leading-relaxed mb-4">Global logistics with a heart. Dedicated to moving your world, one box at a time.</p>
-                <p class="text-purple-500 font-bold">info@flashmovers.co.ke</p>
+                <p class="text-zinc-500 text-sm leading-relaxed mb-4">Elite relocation experts in Nairobi. Moving with heart <i class="fa-solid fa-heart text-purple-500"></i>.</p>
+                <p class="text-purple-500 font-bold">info@flashmover.co.ke</p>
             </div>
             <div>
                 <h4 class="text-[10px] uppercase tracking-[0.4em] text-zinc-600 mb-6 font-black">Support</h4>
@@ -386,7 +398,6 @@
     </footer>
 
     <script>
-        // BACKGROUND PARTICLES
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -411,20 +422,21 @@
         }
         animate();
 
-        // IMPROVED BOOKING LOGIC WITH UX VALIDATION
         function handleBooking(method) {
-            const service = document.getElementById('service_type').value || "General Relocation";
             const fLoc = document.getElementById('from_loc').value;
             const tLoc = document.getElementById('to_loc').value;
-            const feedback = document.getElementById('form-feedback');
+            const errorDiv = document.getElementById('form-error');
 
+            // UX Improvement: Basic validation
             if (!fLoc || !tLoc) {
-                feedback.classList.remove('hidden');
-                gsap.fromTo("#form-feedback", {x: -10}, {x: 10, repeat: 5, yoyo: true, duration: 0.05});
+                errorDiv.classList.remove('hidden');
+                document.getElementById('booking').scrollIntoView();
                 return;
+            } else {
+                errorDiv.classList.add('hidden');
             }
-            feedback.classList.add('hidden');
 
+            const fRooms = document.getElementById('from_rooms').value || "N/A";
             const fFloor = document.getElementById('from_floor').value || "0";
             const fElev = document.getElementById('from_elev').value || "N/A";
             const tRooms = document.getElementById('to_rooms').value || "N/A";
@@ -433,7 +445,7 @@
             const details = document.getElementById('details').value || "None";
             
             const phone = "254721896311";
-            const msg = `FLASHMOVERS REQUEST:%0A------------------%0ASERVICE: ${service}%0AFROM: ${fLoc} (Floor ${fFloor}, ${fElev})%0ATO: ${tLoc} (Floor ${tFloor}, ${tElev})%0ASIZE: ${tRooms}%0A%0ANOTES: ${details}`;
+            const msg = `FLASHMOVERS QUOTE REQUEST:%0A------------------%0AFROM: ${fLoc}%0ALAYOUT: ${fRooms}%0AFLOOR: ${fFloor} (${fElev})%0A%0ATO: ${tLoc}%0ALAYOUT: ${tRooms}%0AFLOOR: ${tFloor} (${tElev})%0A%0ANOTES: ${details}`;
 
             if (method === 'whatsapp') {
                 window.open(`https://wa.me/${phone}?text=${msg}`);
@@ -443,8 +455,8 @@
         }
 
         gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.img-slot, .service-card').forEach(el => {
-            gsap.from(el, { opacity: 0, y: 30, duration: 0.8, scrollTrigger: { trigger: el, start: "top 90%" }});
+        gsap.utils.toArray('.img-slot').forEach(img => {
+            gsap.from(img, { opacity: 0, y: 30, duration: 0.8, scrollTrigger: { trigger: img, start: "top 90%" }});
         });
 
         window.addEventListener('resize', () => {
